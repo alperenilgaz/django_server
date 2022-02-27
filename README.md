@@ -47,3 +47,10 @@ Terminale gelip **python magrate.py makemigrations** yazıp appi oluşturmamız 
 
 ## Admin panelini özelleştirmek 
 
+1) Admin panelinde app kısmındaki yazdığımız title,content,date,author gibi ksımları özelleştirmek için **,verbose_name = tarih,başlık,yazar,içerik vb.** şeklinde değiştirebiliriz.
+
+2) Oluşturduğumuz projeleri normalde article object şeklinde görürüz. Bunu değiştirmek istersek **models.py** kısmına gelip : 
+ def __init__(self):
+    return self.title yazarsak oluşan projelerin ismi başlık şeklinde oluşacak title yerine date yazarsak projenin ismi tarih şeklinde gözükecek.
+    
+4) 
