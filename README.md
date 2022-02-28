@@ -86,4 +86,15 @@ bunu yazdıktan sonra aşağısına şu şekilde bir class oluşturmamız lazım
 
 ## Django URL  yapısı : 
 
+Biz burada belli bir URL' ye göre belirli bir fonksiyon çalıştıracağız. Ancak onun öncesinde ilk olarak **settings.py** dosyamıza gelelim. Burada bulunan templates'leri bir yere koymak için 59.satırda bulunan DIRS ksımına **templates** yazalım. Artık django belirli templates aradoğı zaman yazdığımız templates klasörüne bakacak. Bu klasörüde blog kısmından new folder diyerek ekleyelim.  Artık django belli bir templates aradığı zaman templates klasörünün altına bakmak zorunda.  Daha sonra açtığımız templates klasörüne gelip new file diyerek **index.html** adlı bir dosya oluşturalım.
+Sonra ! işareti yapıp bir templates ana yapsıın belirleyelim. Belirlenen ana yapını 7 satırına YbBlog diylelim sonra 10. satıra h3 etiketiyle anasayfa yazalım. Şimdi sıra URL mapini yazmakta. Blog kısmındaki **urls.py** dosyasına geldeiğimiz zaman daha önce yazılan bir admin URL'sini görüyoruz. Zaten biz daha önce localhost:8000/admin yazdığımızda site karşımıza geliyordu . Bunu değiştirmke için app'imizin altındaki **views.py** kısmına gelip URL gelince çalışacak fonksiyonumuzu yazmamız lazım . İlk olarak view kısmındaki ilk satırdaki render'den sonra **,HttpResponse** yazmamız lazım. Daha sonra
+**def index(reques):**
+    **retrun HttpResponse("Anasayfa")
+ 
+ yazmamız lazım.
+ Buradaki request değişkeni bize django otomatik olarak gönderiyor ve her view fonksiyonunda kesinlikle bulunması gerekir.
+ 
+ Snra **urls.py kısmına views.py 'de** yazdığımız fonksiyonu kullanmamız lazım . Onun için urls.py kısmına gelip **from article.views import index
+
+
 
