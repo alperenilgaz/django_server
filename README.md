@@ -65,3 +65,25 @@ bunu yazdıktan sonra aşağısına şu şekilde bir class oluşturmamız lazım
  6) Şimdi oluşturduğumuz makaleleri daha kolay oluşturmak için **admin.py kısmına search_fields = ["title"]** şeklinde yazarsak artık makaleleri başlığı aratarak kolaycak bulabileceğiz.
  
  7)  Makaleleri oluşturduğumuz tarihe göre filtrelemeyi ise **admin.py kısmına gelip list_filter = [""created date ]** yazarak sağlamış oluruz.
+
+----
+
+## Django  Shell ile ORM sorgularını kullanma : 
+1)ilk olarak yeni bir terminal açıyoruz. Ve djangonun bize verdiği shell'i açmak için terminale gelip **python manage.py shell** yazıyoruz.
+2)django'nun kendi user modelini almak istersek bu  user modeli ise **from django.contrib.auth.models import User** uygulamasının içinde. Bunu terminale yazdıktan sonra **from article.models import Article** yazıyoruz. Bunun sebebi ise article uygulamasından models kısmını dahil edip ve bunun içindeki daha önceden oluşturduğumuz Article modelini dahil ediyoruz
+
+3) şimdi User modelinden bir obje oluşturalım. Bunun farklı yöntemleri var ilk yöntemi hemen deneyelim:
+    1)Terminale gelip **newUser = User(username="denemekullanıcı",password="123")** bunu veritabanına kaydetmek için ise **newUser.save()** dememiz lazım.
+    2)**newUser2=User(username="denemekullanıcı2")** yazdıktan sonra **newUser2.set password("123)** bu ifade passwordumuzu alıcak ve bunu şifreleyerek bir password oluşturcak. En sonunda ise tekrardan **newUser2.save()** yazarak kaydebiliriz.
+    3)başka bir şekilde oluşturmak istersek **newUser3 = User()** yazdıktan sonra **newUser3.username="denemekullanıcı3"** sonra **newUser3.set_password("123")** ve **newUser.firstname ="alperen"** diyebiliriz. Ve en sonunda kaydetmek için **newUser3.save()** diyerek kaydedebiliriz.
+    4)başka bir şekli ise **article = Article(title = "django shell deneme",content= "içerik",author="newuser")** yazdıktan sonra **article.save()** diyip kaydedebiliriz.
+  
+4) Eğer bir article'ı değiştirmek istersek **article.title="django shell deneme değişti"** dersek article'ın title   "article.title="django shell deneme değişti" şeklinde değişir. Ama en sonunda **article.save()** yazmayı unutmamız lazım.
+5) Eğer bütün projeleri görmek istersek **Article.objects.all()** yazmamız lazım.
+6) Eğer bir title'a göre makale aramak istersek **Article.objects.get(title="makale_ismi")** yazmamız yeterli olur. Bulduğumuz article'ı silmek istersek **article_delete()** yazarsak silmiş oluruz. 
+
+----
+
+## Django URL  yapısı : 
+
+
