@@ -27,6 +27,7 @@ oluşan uygulamanın dosyalrında
 ----
 
 ## oluşan app'e model oluşturma ve admin arayüzüne ekleme :
+
 serverin modelini oluşturmak için öncelikle **models.py kısmına gelip**
 class Article(models.Model):
     author=models.ForeignKey("auth.user",on_delete=models.CASCADE) ======> (kullanıcı silindiğinde oluşturduğu article'da silinecek)
@@ -53,4 +54,14 @@ Terminale gelip **python magrate.py makemigrations** yazıp appi oluşturmamız 
  def __init__(self):
     return self.title yazarsak oluşan projelerin ismi başlık şeklinde oluşacak title yerine date yazarsak projenin ismi tarih şeklinde gözükecek.
     
-4) 
+3) Admin.py'de yazdığımız **admin.register(Article)'ı** silip bunu decarotor şeklinde yazıcağız . Yani **@admin.register(Article)** şeklinde yazıcağız.
+bunu yazdıktan sonra aşağısına şu şekilde bir class oluşturmamız lazım **class ArticleAdmin(admin.ModelAdmin):** bunu yazıp aşağısına ise **class(Meta):** yazmamız bu django bize sağladığı bir komut yani metanın içine herhangibir şey yazamayız . class(Meta): yazdıktan sonra article admin ile article bağlamak için metanın içine **model=Article** yazmamız lazım
+
+4) Sırada **list_display** özellğimiz var. Bu özellik sitemizde oluşturduğum makalelerin sadece başlığını değil tarih yazar vb. özellikleri de görmemizi sağlayacak . Bu kodu **admin.py ' de ilk oluşturduğumuz classın altına  list_display=["author","created_date"] şeklinde yazmamız gerek. **
+
+5) Artık makeleler sadece başlıkları  değil tarih ve yazarları da gözükecek fakat bunlarada herhangi bir link olmayacak . Bunlara link eklemek için ise
+ list_displayin altına **list_display_link=["author","created_date"]** şeklinde yazarsak artık tarih ve yazar üstünde de link olacak.
+ 
+ 6) Şimdi oluşturduğumuz makaleleri daha kolay oluşturmak için **admin.py kısmına search_fields = ["title"]** şeklinde yazarsak artık makaleleri başlığı aratarak kolaycak bulabileceğiz.
+ 
+ 7)  Makaleleri oluşturduğumuz tarihe göre filtrelemeyi ise **admin.py kısmına gelip list_filter = [""created date ]** yazarak sağlamış oluruz.
