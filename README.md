@@ -94,7 +94,14 @@ Sonra ! işareti yapıp bir templates ana yapsıın belirleyelim. Belirlenen ana
  yazmamız lazım.
  Buradaki request değişkeni bize django otomatik olarak gönderiyor ve her view fonksiyonunda kesinlikle bulunması gerekir.
  
- Snra **urls.py kısmına views.py 'de** yazdığımız fonksiyonu kullanmamız lazım . Onun için urls.py kısmına gelip **from article.views import index
+  Daha sonra **urls.py kısmına views.py 'de** yazdığımız fonksiyonu kullanmamız lazım . Onun için urls.py kısmına gelip **from article.views import index** yazıp views'e dahil etmemiz lazım.
+  sonra  **path('',index)** yazmamız gerek . Artık anasayfaya gittiğimiz zaman fonksiyonumuz çalışcak.
+  
+  ----
+  
+  ## Statik dosyaları kullanma :
+  
+  
 
 
 
