@@ -29,11 +29,11 @@ oluşan uygulamanın dosyalrında
 ## oluşan app'e model oluşturma ve admin arayüzüne ekleme :
 
 serverin modelini oluşturmak için öncelikle **models.py kısmına gelip**
-class Article(models.Model):
-    author=models.ForeignKey("auth.user",on_delete=models.CASCADE) ======> (kullanıcı silindiğinde oluşturduğu article'da otomatik olarak silinecek)
-    title=models.CharField(max_length=50) ====>  (bizim başlığımızı simgeleyecek)
-    content=models.TextField()  ======>   (bizim içeriğimizi belirletecek)
-    created_date = models.DateTimeField(auto_now=True) ======>(makeleyi oluşturduğumuz zamanın tarihini otomatik olarak kaydeder)
+**class Article(models.Model):**
+    **author=models.ForeignKey("auth.user",on_delete=models.CASCADE)** ======> (kullanıcı silindiğinde oluşturduğu article'da otomatik olarak silinecek)
+    **title=models.CharField(max_length=50)** ====>  (bizim başlığımızı simgeleyecek)
+    **content=models.TextField()**  ======>   (bizim içeriğimizi belirletecek)
+    **created_date = models.DateTimeField(auto_now=True)** ======>(makeleyi oluşturduğumuz zamanın tarihini otomatik olarak kaydeder)
 kodlarını yazyoruz.    
 daha sonra **admin.py** kısmına gelip 
 **from .models importh  app_ismi** yazıyoruz
@@ -100,6 +100,15 @@ Sonra ! işareti yapıp bir templates ana yapsıın belirleyelim. Belirlenen ana
   ----
   
   ## Statik dosyaları kullanma :
+  İlk olarak static dosyasının settings.py kısmının apps kısmında oluğundan emin olalım. Daha sonra biz article app'imizin altına new folder diyerek **static** adında bir dosya oluşturalım. Hemen sonra oluşturduğumuz static'in altına **style.css** bir dosya oluşturalım. Oluşturduğumuz dosyaya gelip anasayfadaki p elementlerinin rengini değiştirmek için şu kodu yazalım
+  
+ **p {
+      background: red;
+     }**
+yazalım. Bunu yaptığımız zaman django otomatik olarak static dosyalarının altına bakıcak. Daha sonra **index.html** dosyasına gelip ilk satırın altına **{% load static %}** yazalım daha sonrasında şu kodumuzu  **style.css dosymızı index dosyamıza dahil etmek için şu kodu yazalım**  <link rel="stylesheet" href = "{% static 'style.css' %}"> yazalım.
+  
+  
+  
   
   
 
