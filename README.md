@@ -106,6 +106,10 @@ Sonra ! işareti yapıp bir templates ana yapsıın belirleyelim. Belirlenen ana
       background: red;
      }**
 yazalım. Bunu yaptığımız zaman django otomatik olarak static dosyalarının altına bakıcak. Daha sonra **index.html** dosyasına gelip ilk satırın altına **{% load static %}** yazalım daha sonrasında şu kodumuzu  **style.css dosymızı index dosyamıza dahil etmek için şu kodu yazalım**  <link rel="stylesheet" href = "{% static 'style.css' %}"> yazalım.
+
+----
+
+##
   
   
   
