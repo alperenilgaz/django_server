@@ -41,7 +41,7 @@ sonra
 **admin.site.register app_ismi** yazıyoruz
 sonra **settings.py** de **INSTALLED_APPS** kısmına gelip ""app ismini"" yazıyoruz
 şuan sitede app kısmımız oluştu fakat girdiğimiz zaman hata alıcağız sebebi ise uygulamaların içindeki modelleri veritabanında oluşturmadık o yüzden bu hatayı almamız gayet normal. Bu hatayı almamak için ise şöyle bir yol izlememiz gerek. 
-Terminale gelip **python magrate.py makemigrations** yazıp appi oluşturmamız lazım daha sonra yine terminale gelip **python manage.py migrate** yazıp tabloyu oluşturmamız lazım.
+Terminale gelip **python manage.py makemigrations** yazıp appi oluşturmamız lazım daha sonra yine terminale gelip **python manage.py migrate** yazıp tabloyu oluşturmamız lazım.
 Şuan her şey hazır sitemize gidip article ekleyebiliriz . Ayrıca herhangi bir kullanıcını yazdığı şeyleri biz kullanıcıyı sildiğimiz zaman yazdıkları article'da otomatik olarak silenecektir. Buna sebep olan kodumuz ise **author=models.ForeignKey("auth.user",on_delete=models.CASCADE)** budur.
 
 ----
