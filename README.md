@@ -60,7 +60,7 @@ bunu yazdıktan sonra aşağısına şu şekilde bir class oluşturmamız lazım
 4) Sırada **list_display** özellğimiz var. Bu özellik sitemizde oluşturduğum makalelerin sadece başlığını değil tarih yazar vb. özellikleri de görmemizi sağlayacak . Bu kodu **admin.py ' de ilk oluşturduğumuz classın altına  list_display=["author","created_date"] şeklinde yazmamız gerek. **
 
 5) Artık makeleler sadece başlıkları  değil tarih ve yazarları da gözükecek fakat bunlarada herhangi bir link olmayacak . Bunlara link eklemek için ise
- list_displayin altına **list_display_link=["author","created_date"]** şeklinde yazarsak artık tarih ve yazar üstünde de link olacak.
+ list_displayin altına **list_display_links=["author","created_date"]** şeklinde yazarsak artık tarih ve yazar üstünde de link olacak.
  
  6) Şimdi oluşturduğumuz makaleleri daha kolay bulmak için **admin.py kısmına search_fields = ["title"]** şeklinde yazarsak artık makaleleri başlığı aratarak kolaycak bulabileceğiz.
  
